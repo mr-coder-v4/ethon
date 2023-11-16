@@ -23,6 +23,8 @@ requirements = [
     "python-decouple",
     "telethon",
     "aiofiles",
+    "aiohttp",
+    "uvloop",
     "asyncio",
     "opencv-python-headless",
     "yt_dlp",
