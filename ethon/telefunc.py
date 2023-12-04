@@ -1,7 +1,6 @@
 import math
 import time
 import asyncio
-import uvloop
 
 from .FasterTg import upload_file, download_file
 
@@ -81,7 +80,7 @@ async def fast_upload(file, name, time, bot, event, msg):
             client=bot,
             file=f,
             filename=name,
-            progress_callback=lambda d, t: asyncio.get_event_loop(uvloop.EventLoopPolicy()).create_task(
+            progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                 progress(
                     d,
                     t,
@@ -99,7 +98,7 @@ async def fast_download(filename, file, bot, event, time, msg):
             client=bot,
             location=file,
             out=fk,
-            progress_callback=lambda d, t: asyncio.get_event_loop(uvloop.EventLoopPolicy()).create_task(
+            progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                 progress(
                     d,
                     t,
